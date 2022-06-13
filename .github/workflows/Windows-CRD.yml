@@ -1,0 +1,28 @@
+name: Windows-CRD
+
+on: 
+  workflow_dispatch:
+    inputs:
+      authcode:
+        description: 'Nhập code thiết lập vào đây'#Đi đến https://remotedesktop.google.com/headless rồi sao chép code thiết lập windows powershell
+        required: true
+      pincode:
+        description: 'Mật khẩu 6 số dùng đăng nhập RDP'
+        required: true
+  
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Initializing Setup
+      run: ./setup.ps1
+    - name: Starting CRD 
+      run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
+    - name: Keep Alive
+      run: ./timeout.ps1
+
+  
+    
+

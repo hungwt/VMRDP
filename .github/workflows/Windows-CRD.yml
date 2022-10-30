@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       authcode:
-        description: 'Nhập code thiết lập vào đây'#Đi đến https://remotedesktop.google.com/headless rồi sao chép code thiết lập windows powershell
+        description: 'Nhập code thiết lập PowerShell vào đây'#Đi đến https://remotedesktop.google.com/headless rồi sao chép code thiết lập windows powershell
         required: true
       pincode:
         description: 'Mật khẩu 6 số dùng đăng nhập RDP'
